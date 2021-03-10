@@ -21,3 +21,9 @@ Dockerise this whole thing:
 Container 1. Django App User
 Container 2. Node App
 Container 3. Postgres Instances
+
+## usage
+Create an env.json for environment variables:
+{
+    "DJANGO_SECRET_KEY": "<your-secret-key>"
+}
