@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'kali.apps.KaliConfig',
-    'rest_framework'
+    'rest_framework',
+    'frontend' # enables the react app
 ]
 
 MIDDLEWARE = [
