@@ -1,0 +1,7 @@
+# core
+django
+djangorestframework
+psycopg2
+
+# testing
+coverage
