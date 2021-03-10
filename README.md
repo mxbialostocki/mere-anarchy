@@ -25,5 +25,19 @@ Container 3. Postgres Instances
 ## usage
 Create an env.json for environment variables:
 {
-    "DJANGO_SECRET_KEY": "<your-secret-key>"
+    "DJANGO_SECRET_KEY": "<your-secret-key>",
+    "DATABASE_ENGINE": "django.db.backends.postgresql_psycopg2",
+    "DATABASE_NAME": "<DB_NAME>",
+    "DATABASE_USER": "<DB_USER>",
+    "DATABASE_PASSWORD": "<DB_PASSWORD">,
+    "DATABASE_HOST": "<DB_HOST>",
+    "DATABASE_PORT": <PORT>
 }
+
+You'll need postgres installed, and to:
+1. Create the database with `create database <NAME>;`
+2. Create a role for the database with `create role <ROLE>;`
+3. Give that role lgoin permissions `alter role "<ROLE>" with login;`
+
+Then you can run the default migration:
+```python manage.py makemigrations kali```
