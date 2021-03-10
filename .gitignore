@@ -131,6 +131,6 @@ dmypy.json
 .pyre/
 
 ############### JAVASCRIPT ###############
-
+*/node_modules
 ############### ENVIRONMENT ###############
 .vscode
