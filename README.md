@@ -41,3 +41,4 @@ You'll need postgres installed, and to:
 
 Then you can run the default migration:
 ```python manage.py makemigrations kali```
+```python manage.py migrate```
