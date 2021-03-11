@@ -22,7 +22,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('kali.urls')),
-    path('', include('frontend.urls')),
+    # path('', include('frontend.urls')),
 
     # apiclient on client-side will request this adress later
     path(

@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'django_extensions',    # New! (useful extension)
     'graphene_django',      # New! (for graphql communication)
     'corsheaders',          # New! (for cors request in dev env)
-    'frontend'              # enables the react app
 ]
 
 CORS_ORIGIN_WHITELIST = (
@@ -91,10 +90,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'hecate.wsgi.application'
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'frontend/static'),
-)
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -154,3 +149,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'frontend/static'),
+)
