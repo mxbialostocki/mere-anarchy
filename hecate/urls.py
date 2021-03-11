@@ -22,10 +22,17 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('kali.urls')),
-    path('', include('frontend.urls'))
+    path('', include('frontend.urls')),
 
     # apiclient on client-side will request this adress later
-    path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True))),
+    path(
+        'graphql',
+        csrf_exempt(
+            GraphQLView.as_view(
+                graphiql=True
+            )
+        )
+    ),
 
     # index.html file will be our root template. When a user opens our webste,
     # this file will be sent by server at first. After then, api requests
@@ -33,5 +40,5 @@ urlpatterns = [
     
     # (it points to ~/Blog/djr/templates/index.html)
     # (currently there is no file, webpack production bundle will come here )
-    path("", TemplateView.as_view(template_name="index.html")),
+    path('', TemplateView.as_view(template_name='index.html')),
 ]
