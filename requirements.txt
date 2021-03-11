@@ -5,3 +5,8 @@ psycopg2
 
 # testing
 coverage
+
+# to gqp exp.
+django_extensions
+django-cors-headers
+graphene-django>=2.0

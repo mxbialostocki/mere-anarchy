@@ -47,11 +47,23 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'kali.apps.KaliConfig',
     'rest_framework',
-    'frontend' # enables the react app
+    'django_extensions',    # New! (useful extension)
+    'graphene_django',      # New! (for graphql communication)
+    'corsheaders',          # New! (for cors request in dev env)
+    'frontend'              # enables the react app
 ]
+
+CORS_ORIGIN_WHITELIST = (
+    '<http://localhost:8080>',
+)
+
+GRAPHENE = {
+    'SCHEMA': 'gql.schema.schema'
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -65,7 +77,7 @@ ROOT_URLCONF = 'hecate.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': (os.path.join(BASE_DIR, 'frontend/templates'),),
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,6 +92,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'hecate.wsgi.application'
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'frontend/static'),
+)
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
