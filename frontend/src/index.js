@@ -4,16 +4,15 @@ import App from './App';
 
 import { BrowserRouter } from "react-router-dom"
 
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloClient, ApolloProvider } from '@apollo/client';
 
 /*
     our api client will make request to thils adress.
     at      ~/mere-anarchy/hecate/urls.py
 */
 const apiclient = new ApolloClient({
-    uri: '<http://127.0.0.1:8000/graphql>',
-  });
+    uri: 'http://127.0.0.1:8000/graphql',
+});
 
 
 const Init = () => (

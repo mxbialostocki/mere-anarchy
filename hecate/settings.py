@@ -54,6 +54,7 @@ INSTALLED_APPS = [
 
 CORS_ORIGIN_WHITELIST = (
     'http://127.0.0.1:8000',
+    'http://localhost:8000'
 )
 
 GRAPHENE = {
@@ -148,7 +149,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/frontend/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'frontend/static'),

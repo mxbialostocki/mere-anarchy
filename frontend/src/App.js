@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch, Link } from "react-router-dom"
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery } from '@apollo/client'
 import { BOOK_QUERY, BOOK_LIST_QUERY } from "./query"
 
 import "./App.css"
@@ -45,34 +45,34 @@ const MainPage = (props) => {
     )
 }
 
-const BookPage = (props) => {
-    // uncomment to see which props are passed from router
-    //console.log(props)
+// const BookPage = (props) => {
+//     // uncomment to see which props are passed from router
+//     //console.log(props)
 
-    // urlParameters will look like this { title: 'title-of-the-selected-book' }
-    const urlParameters = props.match.params
+//     // urlParameters will look like this { title: 'title-of-the-selected-book' }
+//     const urlParameters = props.match.params
 
-    const { loading, error, data } = useQuery(BOOK_QUERY, { 
-        variables:{slug:urlParameters.slug}
-    });
+//     const { loading, error, data } = useQuery(BOOK_QUERY, { 
+//         variables:{slug:urlParameters.slug}
+//     });
 
-    if (loading) return <div>Loading</div>
-    if (error) return <div>Unexpected Error: {error.message}</div>
+//     if (loading) return <div>Loading</div>
+//     if (error) return <div>Unexpected Error: {error.message}</div>
   
-    return (
-        <div className="book-page">
-        <Link to="/" className="back-button" >Main Page</Link>
-            {data && data.book && 
-                <div className="book-page-box">
-                    <div className="movie-page-info">
-                        <h1>{data.book.title}</h1>
-                        <p>{data.book.author}</p>
-                    </div>
-                </div>
-            }
+//     return (
+//         <div className="book-page">
+//         <Link to="/" className="back-button" >Main Page</Link>
+//             {data && data.book && 
+//                 <div className="book-page-box">
+//                     <div className="movie-page-info">
+//                         <h1>{data.book.title}</h1>
+//                         <p>{data.book.author}</p>
+//                     </div>
+//                 </div>
+//             }
 
-        </div>
-    )
-}
+//         </div>
+//     )
+// }
 
 export default App

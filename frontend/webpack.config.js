@@ -12,7 +12,7 @@ const productionSettings = {
 	entry: entrypoint,
 	output: {
         // output directory will be the root directory of django
-        path: path.resolve(__dirname, '../'),
+        path: path.resolve(__dirname),
         // this is the bundled code we wrote
         filename: 'static/js/[name].js',
         // this is the bundled library code
@@ -34,7 +34,7 @@ const productionSettings = {
 		rules: [
 			{
 				// for bundling transpiled javascript
-				test: /\\.m?js$/,
+				test: /\.js$|jsx/,
 				exclude: /(node_modules|bower_components)/,
 				use: {
 					loader: "babel-loader",
@@ -72,7 +72,7 @@ const devSettings = {
 		filename: 'static/js/bundle.js',
 		chunkFilename: 'static/js/[name].chunk.js',
 	},
-	devtool: 'inline',
+	devtool: 'inline-source-map',
 	devServer: {
 		historyApiFallback: true,
 		contentBase: './dist',
@@ -116,5 +116,6 @@ const devSettings = {
 		})
 	]
 };
+console.log(devSettings)
 
 module.exports = isEnvProduction ? productionSettings : devSettings;
