@@ -1,6 +1,8 @@
 # mere-anarchy
 Django / React boilerplate
 
+Work on `dev` branch only
+
 ## map
 Django app
 -[] hello-world == render basic entry point
