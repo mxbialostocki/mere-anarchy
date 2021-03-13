@@ -32,7 +32,7 @@ html, body {
 }
 
 /* MOVIE CARD */
-.movie-card {
+.book-card {
     position: relative;
     width:168px;
     height:auto;
@@ -41,23 +41,23 @@ html, body {
     margin:16px;
     box-shadow: 0 12px 12px -4px rgba(0,0,0, 0.4);
 }
-.movie-card:hover {
+.book-card:hover {
     box-shadow: 0 12px 18px 4px rgba(0,0,0, 0.8);
 
 }
-.movie-card-image {
+.book-card-image {
     width:168px;
     height:264px;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
 }
-.movie-card-name {
+.book-card-name {
     text-align: center;
     margin: 0;
     padding: 8px;
     font-weight: bold;
 }
-.movie-card-link {
+.book-card-link {
     position: absolute;
     top:0;
     left:0;
@@ -79,7 +79,7 @@ html, body {
     cursor:pointer;
 }
 
-.movie-page {
+.book-page {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -91,17 +91,17 @@ html, body {
     border-radius: 6px;
 }
 
-.movie-page-box {
+.book-page-box {
     position: relative;
     display: flex;
     height:352px;
     background-color: #f1f1f1;
 }
-.movie-page-image {
+.book-page-image {
     width:280px;
     height:352px;
 }
-.movie-page-info {
+.book-page-info {
     position: relative;
     display: flex;
     flex-direction: column;

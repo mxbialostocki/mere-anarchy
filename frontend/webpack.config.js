@@ -11,8 +11,8 @@ const productionSettings = {
 	mode: "production",
 	entry: entrypoint,
 	output: {
-        // output directory will be the root directory of django
-        path: path.resolve(__dirname),
+        // output directory will be the root directory of frpntend
+        path: path.resolve(__dirname, '../'),
         // this is the bundled code we wrote
         filename: 'static/js/[name].js',
         // this is the bundled library code
@@ -58,7 +58,7 @@ const productionSettings = {
 			template: "./src/index.html",
 			// this is emitted bundle html file
 			// django will use this as template after bundling
-      filename:"./templates/index.html"
+      filename:"../templates/index.html"
 		}),
 	]
 };
@@ -67,7 +67,7 @@ const devSettings = {
 	mode: "development",
     entry: entrypoint,
 	output: {
-		path: path.resolve(__dirname, './build'),
+		path: path.resolve(__dirname, '../'),
 		publicPath: "/",
 		filename: 'static/js/bundle.js',
 		chunkFilename: 'static/js/[name].chunk.js',
@@ -81,7 +81,7 @@ const devSettings = {
 	module: {
 		rules: [
 			{	// using transpiled javascript
-				test: /\\.m?js$/,
+				test: /\.m?js$/,
 				exclude: /(node_modules|bower_components)/,
 				include: path.resolve(__dirname, 'src'),
 				use: {
@@ -97,7 +97,7 @@ const devSettings = {
 			},
 
 			{
-				test: /\\.css$/i,
+				test: /\.css$/i,
 				use: [
 				  // IMPORTANT => don't forget `injectType`  option  
 				  // in some cases some styles can be missing due to 
@@ -113,6 +113,7 @@ const devSettings = {
 	plugins: [
 		new HtmlWebPackPlugin({
 			template: "./src/index.html",
+			filename:"templates/index.html"
 		})
 	]
 };

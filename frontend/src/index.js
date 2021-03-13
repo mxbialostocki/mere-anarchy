@@ -4,7 +4,7 @@ import App from './App';
 
 import { BrowserRouter } from "react-router-dom"
 
-import { ApolloClient, ApolloProvider } from '@apollo/client';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 /*
     our api client will make request to thils adress.
@@ -12,6 +12,8 @@ import { ApolloClient, ApolloProvider } from '@apollo/client';
 */
 const apiclient = new ApolloClient({
     uri: 'http://127.0.0.1:8000/graphql',
+    cache: new InMemoryCache()
+
 });
 
 

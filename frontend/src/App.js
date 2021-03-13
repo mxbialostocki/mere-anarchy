@@ -14,7 +14,7 @@ const App = () => {
                 // colon before slug means it is a dynamic value
                 // that makes slug parameter anything
                 // like: /movie/the-matrix-1999   or /movie/anything
-                {/* <Route exact path="/movie/:slug" component={MoviePage} /> */}
+                <Route exact path="/book/:title" component={BookPage} />
             </Switch>
         </div>
     )
@@ -45,34 +45,35 @@ const MainPage = (props) => {
     )
 }
 
-// const BookPage = (props) => {
-//     // uncomment to see which props are passed from router
-//     //console.log(props)
+const BookPage = (props) => {
+    // uncomment to see which props are passed from router
+    //console.log(props)
 
-//     // urlParameters will look like this { title: 'title-of-the-selected-book' }
-//     const urlParameters = props.match.params
+    // urlParameters will look like this { title: 'title-of-the-selected-book' }
+    const urlParameters = props.match.params
+    console.log(props.match)
 
-//     const { loading, error, data } = useQuery(BOOK_QUERY, { 
-//         variables:{slug:urlParameters.slug}
-//     });
+    const { loading, error, data } = useQuery(BOOK_QUERY, { 
+        variables:{title:urlParameters.title}
+    });
 
-//     if (loading) return <div>Loading</div>
-//     if (error) return <div>Unexpected Error: {error.message}</div>
+    if (loading) return <div>Loading</div>
+    if (error) return <div>Unexpected Error: {error.message}</div>
   
-//     return (
-//         <div className="book-page">
-//         <Link to="/" className="back-button" >Main Page</Link>
-//             {data && data.book && 
-//                 <div className="book-page-box">
-//                     <div className="movie-page-info">
-//                         <h1>{data.book.title}</h1>
-//                         <p>{data.book.author}</p>
-//                     </div>
-//                 </div>
-//             }
+    return (
+        <div className="book-page">
+        <Link to="/" className="back-button" >Main Page</Link>
+            {data?.book && 
+                <div className="book-page-box">
+                    <div className="book-page-info">
+                        <h1>{data.book.title}</h1>
+                        <p>{data.book.author}</p>
+                    </div>
+                </div>
+            }
 
-//         </div>
-//     )
-// }
+        </div>
+    )
+}
 
 export default App
