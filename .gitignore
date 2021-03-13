@@ -133,7 +133,8 @@ dmypy.json
 
 ############### JAVASCRIPT ###############
 */node_modules
-static/js/bundle.js
+static/js/*
+templates/*
 
 ############### ENVIRONMENT ###############
 .vscode

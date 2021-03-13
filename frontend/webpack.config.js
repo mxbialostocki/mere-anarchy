@@ -22,7 +22,7 @@ const productionSettings = {
 		minimize: true,
 		splitChunks: {
 		  chunks: 'all',
-		  name: true,
+		  name: false,
 		},
 		runtimeChunk: false,
 	  },
@@ -41,7 +41,7 @@ const productionSettings = {
 				}
 			},
 			{
-				test: /\\.css$/i,
+				test: /\.css$/i,
 				use: [
 				  // IMPORTANT => don't forget `injectType`  option  
 				  // in some cases some styles can be missing due to 
@@ -58,7 +58,7 @@ const productionSettings = {
 			template: "./src/index.html",
 			// this is emitted bundle html file
 			// django will use this as template after bundling
-      filename:"../templates/index.html"
+      filename:"templates/index.html"
 		}),
 	]
 };
