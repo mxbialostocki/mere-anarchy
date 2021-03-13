@@ -111,6 +111,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+env.json 
 
 # Spyder project settings
 .spyderproject
@@ -132,5 +133,8 @@ dmypy.json
 
 ############### JAVASCRIPT ###############
 */node_modules
+static/js/*
+templates/*
+
 ############### ENVIRONMENT ###############
 .vscode
