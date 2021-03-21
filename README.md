@@ -3,21 +3,27 @@ Django / React boilerplate
 
 Work on `dev` branch only
 
+## current to-do list
+- [ ] add 2 more data points to record service
+- [ ] render those changes
+= [ ] Create front-end for add / edit / delete in the api (make this it's own component)
+
+
 ## map
 Django app
-- [] hello-world == render basic entry point
-- [] django auth, google auth, facebook auth
-- [] default postgres db for CRUD with book records (as example)
+- [x] hello-world == render basic entry point
+- [ ] django auth, google auth, facebook auth
+- [ ] default postgres db for CRUD with book records (as example)
     1. records database
     3. users database I uuid
     4. users database II user info
-- [] 
+- [ ] 
 
 React Frontend
-- [] Node entry talking to Django
-- [] React Framework
-- [] Material-UI Library 
-- [] GraphQl to manage all API requests
+- [x] Node entry talking to Django
+- [x] React Framework
+- [x] Material-UI Library 
+- [x] GraphQl to manage all API requests
 
 Dockerise this whole thing:
 Container 1. Django App User
