@@ -1,53 +1,42 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { render } from "react-dom";
 import { Typography } from "@material-ui/core"
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [],
-      loaded: false,
-      placeholder: "Loading"
-    };
-  }
+const App = () => {
+  const [ data, setData ] = useState([])
+  const [ loaded, setLoaded ] = useState(false)
+  const [ placeholder, setPlaceholder ] = useState("Loading")
 
-  componentDidMount() {
+  useEffect(() => {
     fetch("api/kali")
       .then(response => {
         if (response.status > 400) {
-          return this.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
+          return setPlaceholder("Something went wrong!")
         }
         return response.json();
       })
       .then(data => {
-        this.setState(() => {
-          return {
-            data,
-            loaded: true
-          };
-        });
-      });
-  }
+        setData(data)
+        setLoaded(true)
+      })
+  }, [])
 
-  render() {
-    return (
-      <ul>
-        {this.state.data.map(contact => {
+  return (
+    <ul>
+      {
+        data.map(record => {
           return (
-            <li key={contact.id}>
-              <Typography variant="h2">{contact.title} - {contact.author}</Typography>
+            <li key={record.id}>
+              <Typography variant="h4">{record.title} - {record.author}</Typography>
             </li>
-          );
-        })}
-      </ul>
-    );
-  }
+          )
+        })
+      }
+    </ul>
+  )
 }
 
 export default App;
 
-const container = document.getElementById("app");
-render(<App />, container);
+const container = document.getElementById("app")
+render(<App />, container)

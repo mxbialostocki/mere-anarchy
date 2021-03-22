@@ -4,6 +4,7 @@ Django / React boilerplate
 Work on `dev` branch only
 
 ## current to-do list
+- [x] convert class based component functional component
 - [ ] add 2 more data points to record service
 - [ ] render those changes
 = [ ] Create front-end for add / edit / delete in the api (make this it's own component)
