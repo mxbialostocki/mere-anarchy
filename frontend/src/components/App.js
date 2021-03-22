@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import { Typography } from "@material-ui/core"
 
 class App extends Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class App extends Component {
         {this.state.data.map(contact => {
           return (
             <li key={contact.id}>
-              {contact.title} - {contact.author}
+              <Typography variant="h2">{contact.title} - {contact.author}</Typography>
             </li>
           );
         })}
