@@ -3,16 +3,17 @@ import { render } from 'react-dom'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import typography from './lib/typography'
+import typography from './theme/typography'
+import palette from './theme/palette'
 
 import App from './components/App'
 
 const theme = createMuiTheme({
-    typography
+    typography,
+    palette
   })
 
   render (
-    // 2. the theme (including the typography element) then wraps around the entry point.
     <Router>
         <ThemeProvider theme={theme}>
             <App />
