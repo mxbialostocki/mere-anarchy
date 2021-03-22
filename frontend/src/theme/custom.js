@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
-  app: {
+  main: {
     width: '100vw',
     height: '100vh',
     justifyContent: 'center',

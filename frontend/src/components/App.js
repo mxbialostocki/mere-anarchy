@@ -1,42 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { render } from "react-dom";
-import { Typography } from "@material-ui/core"
+import React from "react"
+import { render } from "react-dom"
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
+
+import Main from './Main'
 
 const App = () => {
-  const [ data, setData ] = useState([])
-  const [ loaded, setLoaded ] = useState(false)
-  const [ placeholder, setPlaceholder ] = useState("Loading")
-
-  useEffect(() => {
-    fetch("api/kali")
-      .then(response => {
-        if (response.status > 400) {
-          return setPlaceholder("Something went wrong!")
-        }
-        return response.json();
-      })
-      .then(data => {
-        setData(data)
-        setLoaded(true)
-      })
-  }, [])
-
   return (
-    <ul>
-      {
-        data.map(record => {
-          return (
-            <li key={record.id}>
-              <Typography variant="h4">{record.title} - {record.author}</Typography>
-            </li>
-          )
-        })
-      }
-    </ul>
+    <Router>
+      <Switch>
+        <Route exact path='/'>
+          <Main />
+        </Route>
+        <Route exact path='/daemon'>
+          <div>daemon</div>
+        </Route>
+      </Switch>
+    </Router>
   )
 }
 
 export default App;
 
-const container = document.getElementById("app")
+const container = document.getElementById("root")
 render(<App />, container)

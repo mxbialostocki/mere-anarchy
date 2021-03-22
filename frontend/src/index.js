@@ -1,7 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
-import { BrowserRouter as Router } from 'react-router-dom'
 
 import typography from './theme/typography'
 import palette from './theme/palette'
@@ -13,12 +12,10 @@ const theme = createMuiTheme({
     palette
   })
 
-  render (
-    <Router>
-        <ThemeProvider theme={theme}>
-            <App />
-        </ThemeProvider>
-    </Router>,
+render (
+    <ThemeProvider theme={theme}>
+        <App />
+    </ThemeProvider>,
     
-document.getElementById('app')
+    document.getElementById('root')
 )
