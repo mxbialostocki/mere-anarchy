@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Grid, Typography } from "@material-ui/core"
-import useStyles from "../theme/custom"
 
 const Main = () => {
-    const { main } = useStyles()
     const [ data, setData ] = useState([])
     const [ loaded, setLoaded ] = useState(false)
     const [ placeholder, setPlaceholder ] = useState("Loading")
@@ -23,7 +21,6 @@ const Main = () => {
     }, [])
 
     return (
-        <Grid container direction="column" alignItems="center" className={main}>
             <ul>
             {
                 data.map(record => {
@@ -35,7 +32,6 @@ const Main = () => {
                 })
             }
             </ul>
-        </Grid>
     )
 }
 
