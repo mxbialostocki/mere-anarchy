@@ -7,10 +7,10 @@ import Main from './Main'
 import useStyles from "../theme/custom"
 
 const App = () => {
-  const { main } = useStyles()
+  const { appBody } = useStyles()
 
   return (
-    <Grid container direction="column" alignItems="left" className={appFrame}>
+    <Grid container direction="column" alignItems="center" className={appBody}>
       <Router>
         <Switch>
           <Route exact path='/'>
