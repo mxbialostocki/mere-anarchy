@@ -13,9 +13,7 @@ const App = () => {
     <Grid container direction="column" alignItems="center" className={appBody}>
       <Router>
         <Switch>
-          <Route exact path='/'>
-            <Main />
-          </Route>
+          <Route exact path='/' component={Main} />
           <Route exact path='/daemon'>
             <div>daemon</div>
           </Route>
