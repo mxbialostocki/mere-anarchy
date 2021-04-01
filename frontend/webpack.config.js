@@ -68,9 +68,9 @@ const devSettings = {
     entry: entrypoint,
 	output: {
 		path: path.resolve(__dirname, '../'),
-		publicPath: "/",
-		filename: 'frontend/static/js/bundle.js',
-		chunkFilename: 'frontend/static/js/[name].chunk.js',
+		publicPath: "/frontend/static",
+		filename: 'js/bundle.js',
+		chunkFilename: 'js/[name].chunk.js',
 	},
 	devtool: 'inline-source-map',
 	devServer: {
@@ -97,7 +97,7 @@ const devSettings = {
 			},
 
 			{
-				test: /\\.css$/i,
+				test: /\.css$/i,
 				use: [
 				  // IMPORTANT => don't forget `injectType`  option  
 				  // in some cases some styles can be missing due to 

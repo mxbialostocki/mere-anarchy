@@ -21,17 +21,18 @@ const Main = () => {
     }, [])
 
     return (
-            <ul>
-            {
-                data.map(record => {
-                return (
-                    <li key={record.id}>
-                    <Typography variant="h4">{record.title} - {record.author}</Typography>
-                    </li>
-                )
-                })
-            }
-            </ul>
+        <ul>
+
+        {
+            data.map(record => {
+            return (
+                <li key={record.id}>
+                <Typography variant="h4">{record.title} - {record.author}</Typography>
+                </li>
+            )
+            })
+        }
+        </ul>
     )
 }
 
