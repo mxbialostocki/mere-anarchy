@@ -12,6 +12,7 @@
   "author": "mxbialostocki",
   "license": "ISC",
   "devDependencies": {
+    "@apollo/client": "^3.3.13",
     "@babel/core": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
     "@babel/preset-react": "^7.12.13",

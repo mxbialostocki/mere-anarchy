@@ -1,38 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { Grid, Typography } from "@material-ui/core"
+import { useQuery } from '@apollo/client'
+import { BOOK_LIST_QUERY } from "../queries/query"
+
+import { Typography } from "@material-ui/core"
 
 const Main = () => {
-    const [ data, setData ] = useState([])
-    const [ loaded, setLoaded ] = useState(false)
-    const [ placeholder, setPlaceholder ] = useState("Loading")
+    const { loading, error, data } = useQuery(BOOK_LIST_QUERY);
 
-    useEffect(() => {
-        fetch("api/kali")
-        .then(response => {
-            if (response.status > 400) {
-            return setPlaceholder("Something went wrong!")
+    // when query starts, loading will be true until the response will back.
+    // At this time this will be rendered on screen
+    if (loading) return <div>Loading</div>
+    
+    // if response fail, this will be rendered
+    if (error) return <div>Unexpected Error: {error.message}</div>
+
+    //if query succeed, data will be available and render the data
+    return(
+        <div>
+            {data && data.bookList &&
+                data.bookList.map(record => (
+                    console.log({record}),
+                    <li key={record.id}>
+                        <Typography variant="h4">{record.title} - {record.author}</Typography>
+                    </li>
+                ))
             }
-            return response.json();
-        })
-        .then(data => {
-            setData(data)
-            setLoaded(true)
-        })
-    }, [])
-
-    return (
-        <ul>
-
-        {
-            data.map(record => {
-            return (
-                <li key={record.id}>
-                <Typography variant="h4">{record.title} - {record.author}</Typography>
-                </li>
-            )
-            })
-        }
-        </ul>
+        </div>
     )
 }
 
