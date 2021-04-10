@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Book
+from .models import Record
 
 """
 Serilaization: Transforming an object into another data format.
@@ -15,7 +15,7 @@ This means you can:
 """
 
 
-class BookSerializer(serializers.ModelSerializer):
+class RecordSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Book
+        model = Record
         fields = ('id', 'title', 'author')

@@ -1,12 +1,12 @@
 //import our graph query parser
 import gql from "graphql-tag";
 
-// our first query will requests all books
+// our first query will request all records
 // with only given fields
 // note the usage of gql with jsvascript string literal
-export const BOOK_LIST_QUERY = gql`
-    query bookList{
-        bookList{
+export const RECORD_LIST_QUERY = gql`
+    query recordList{
+        recordList{
             id, title, author
         }
     }
@@ -14,9 +14,9 @@ export const BOOK_LIST_QUERY = gql`
 // Note the usage of argument.
 // the exclamation mark makes the slug argument as required
 // without it , argument will be optional
-export const BOOK_QUERY = gql`
-    query book($title:String!){
-        book(title:$title){
+export const RECORD_QUERY = gql`
+    query record($title:String!){
+        record(title:$title){
             id, title, author, created_at 
         }
     }
