@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('kali', '0001_initial'),
+        ('records', '0001_initial'),
     ]
 
     operations = [

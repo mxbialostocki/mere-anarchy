@@ -17,6 +17,7 @@ const Main = () => {
     //if query succeed, data will be available and render the data
     return(
         <div>
+            Is this rendering?
             {data && data.recordList &&
                 data.recordList.map(record => (
                     console.log({record}),

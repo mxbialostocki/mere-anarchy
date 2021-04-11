@@ -2,7 +2,7 @@ import graphene
 from graphene_django import DjangoObjectType
 from graphql import GraphQLError
 
-from kali.models import Record
+from records.models import Record
 
 
 class RecordType(DjangoObjectType):

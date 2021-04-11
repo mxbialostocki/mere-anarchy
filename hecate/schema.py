@@ -1,12 +1,12 @@
 import graphene
 import graphql_jwt
 
-import kali.schema
+import records.schema
 import users.schema
 
 
 class Query(
-    kali.schema.Query,
+    records.schema.Query,
     users.schema.Query,
     graphene.ObjectType
 ):
@@ -14,7 +14,7 @@ class Query(
 
 
 class Mutation(
-    kali.schema.Mutation,
+    records.schema.Mutation,
     users.schema.Mutation,
     graphene.ObjectType
 ):

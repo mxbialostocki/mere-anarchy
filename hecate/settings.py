@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Register Project App imports
-    'kali.apps.KaliConfig',
+    'records.apps.RecordsConfig',
     'users.apps.UsersConfig',
     'frontend.apps.FrontendConfig',
     # Register External Apps

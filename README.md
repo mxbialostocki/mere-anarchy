@@ -51,7 +51,7 @@ You'll need postgres installed, and to:
 3. Give that role lgoin permissions `alter role "<ROLE>" with login;`
 
 Then you can run the default migration:
-```python manage.py makemigrations kali```
+```python manage.py makemigrations records```
 ```python manage.py migrate```
 
 ## coverage
