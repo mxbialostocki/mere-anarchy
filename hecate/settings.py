@@ -45,9 +45,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Register Project App imports
     'kali.apps.KaliConfig',
+    'users.apps.UsersConfig',
+    'frontend.apps.FrontendConfig',
+    # Register External Apps
     'rest_framework',
-    'frontend',             # enables the react app
     'django_extensions',    # New! (useful extension)
     'graphene_django',      # New! (for graphql communication)
     'corsheaders',          # New! (for cors request in dev env)
@@ -129,6 +132,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'graphql_jwt.backends.JSONWebTokenBackend',
+    'django.contrib.auth.backends.ModelBackend'
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
@@ -155,5 +162,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'frontend/static')
 
 
 GRAPHENE = {
-    'SCHEMA': 'hecate.schema.schema'
+    'SCHEMA': 'hecate.schema.schema',
+    'MIDDLEWARE': [
+        'graphql_jwt.middleware.JSONWebTokenMiddleware',
+    ],
 }
