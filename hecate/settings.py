@@ -58,10 +58,6 @@ CORS_ORIGIN_WHITELIST = (
     'http://localhost:8000'
 )
 
-GRAPHENE = {
-    'SCHEMA': 'gql.schema.schema'
-}
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'corsheaders.middleware.CorsMiddleware',
@@ -156,3 +152,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'frontend/static')
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, 'frontend/static'),
 # )
+
+
+GRAPHENE = {
+    'SCHEMA': 'hecate.schema.schema'
+}

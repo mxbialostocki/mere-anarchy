@@ -8,7 +8,7 @@ Work on `dev` branch only
 - [ ] add 2 more data points to record service
 - [ ] render those changes
 = [ ] Create front-end for add / edit / delete in the api (make this it's own component)
-
+- - - THIS: https://www.howtographql.com/graphql-python/3-mutations/
 
 ## map
 Django app
@@ -33,7 +33,7 @@ Container 3. Postgres Instances
 
 ## usage
 Create an env.json for environment variables:
-<code>
+```
 {
     "DJANGO_SECRET_KEY": "<your-secret-key>",
     "DATABASE_ENGINE": "django.db.backends.postgresql_psycopg2",
@@ -43,7 +43,7 @@ Create an env.json for environment variables:
     "DATABASE_HOST": "<DB_HOST>",
     "DATABASE_PORT": <PORT>
 }
-</code>
+```
 
 You'll need postgres installed, and to:
 1. Create the database with `create database <NAME>;`
