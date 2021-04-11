@@ -1,5 +1,5 @@
 //import our graph query parser
-import gql from "graphql-tag";
+import { gql } from "@apollo/client"
 
 // our first query will request all records
 // with only given fields

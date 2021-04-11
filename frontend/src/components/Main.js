@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from '@apollo/client'
-import { RECORD_LIST_QUERY } from "../queries/query"
+import { RECORD_LIST_QUERY } from "../queries/queries"
 
 import { Typography } from "@material-ui/core"
 

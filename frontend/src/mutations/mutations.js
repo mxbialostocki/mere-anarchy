@@ -1,9 +1,11 @@
-import gql from "graphql-tag"
+import { gql } from "@apollo/client"
 
-export const RECORD_MUTATION = gql`
-mutation record($title:String!){
-    record(title:$title){
-        id, title, author, created_at 
+export const CREATE_RECORD_MUTATION = gql`
+mutation CreateRecord($title: String!, $author: String!){
+    createRecord(title: $title, author: $author){
+        id
+        title
+        author 
     }
-
+}
 `
