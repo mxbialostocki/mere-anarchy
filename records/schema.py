@@ -1,4 +1,5 @@
 import graphene
+from django.db.models import Q
 from graphene_django import DjangoObjectType
 from graphql import GraphQLError
 
@@ -18,17 +19,25 @@ class ReadType(DjangoObjectType):
 
 
 class Query(graphene.ObjectType):
-    record_list = graphene.List(RecordType)
+    record_list = graphene.List(RecordType, search=graphene.String())
     read_list = graphene.List(ReadType)
     record_by_id = graphene.Field(RecordType, id=graphene.ID(required=True))
 
-    def resolve_record_list(self, info, **kwargs):
+    def resolve_record_list(self, info, search=None, **kwargs):
+        if search:
+            filter = (
+                Q(title__icontains=search) | 
+                Q(author__icontains=search)
+            )
+            return Record.objects.filter(filter)
+
         return Record.objects.all().only("title", "author")
 
     def resolve_read_list(self, info, **kwargs):
         return Read.objects.all()
 
-    def resolve_record(self, info, **kwargs):
+    def resolve_record_by_id(self, info, id=None, **kwargs):
+
         try:
             return Record.objects.get(id=id)
         except Record.DoesNotExist:
